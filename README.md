@@ -39,6 +39,13 @@ pip install -r dust3r/requirements_optional.txt
 3. Optional, compile the cuda kernels for RoPE (as in CroCo v2):
 ```bash
 # DUST3R relies on RoPE positional embeddings for which you can compile some cuda kernels for faster runtime.
+
+# My additions:
+conda install cuda -c nvidia/label/cuda-12.1.1
+pip install ninja
+export CC=$(which gcc)
+export CXX=$(which g++)
+#
 cd dust3r/croco/models/curope/
 python setup.py build_ext --inplace
 cd ../../../../
